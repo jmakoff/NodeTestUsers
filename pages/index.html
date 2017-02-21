@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Start Page</title>
+
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+   <body>
+<h1 class='text-center'>Hello!!!</h1>
+<h3 class="text-center">You are welcome to my database!</h3>
+<div class="container">
+
+    <form class="form-signin col-md-3 col-md-offset-4">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="User name" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+
+        <button class="btn btn-lg btn-primary " type="submit">Sign in</button>
+
+
+    </form>
+
+</div>
+<div class="text-center">
+<h3>If you have no user: </h3>
+<button class="btn btn-lg btn-primary " data-toggle="modal" data-target=".bs-example-modal-lg" >Create new User</button>
+</div>
+
+
+
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <br>
+                    <div class="col-md-12"><h3 class="text-center">Register New User to DataBase!</h3></div>
+                    <label for="inputName" class="col-sm-4 control-label">User Name</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="inputName" placeholder="User Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-4 control-label">Password</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="password" placeholder="Password" >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-10">
+                        <button type="button" class="btn btn-success" id="register">Register!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script >
+    document.getElementById('register').onclick = function () {
+        var registerData= {
+
+            userName: document.getElementById('inputName').value,
+            password: document.getElementById('password').value
+
+        }
+        console.log(JSON.stringify(registerData));
+
+
+    }
+</script>
+</body>
+</html>
