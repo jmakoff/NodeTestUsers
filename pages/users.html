@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+<table id="tbody"></table>
+
+<script>
+    $(document).ready(function () {
+        var tbody = document.getElementById('tbody');
+
+        function getItems() {
+
+            $.ajax({
+                url: '/api',
+                accepts: 'application/json',
+                method: 'GET',
+                success: function (data) {
+
+                    var items = data;
+                    var html = '';
+
+                    for (var i = 0; i < items.length; i++) {
+                        html += `<tr>
+
+                                        <td>${items[i].userName}</td>
+                                        <td>${items[i].password}</td>
+                                    </tr>`
+                    }
+                    ;
+                    tbody.innerHTML = html;
+
+                }
+            });
+        }
+
+        getItems()
+    })
+</script>
+</body>
+</html>

@@ -71,17 +71,27 @@
 </div>
 
 <script >
-    document.getElementById('register').onclick = function () {
+    $('#register').on('click', function () {
         var registerData= {
 
-            userName: document.getElementById('inputName').value,
-            password: document.getElementById('password').value
+            userName: $('#inputName').val(),
+            password: $('#password').val()
 
         }
         console.log(JSON.stringify(registerData));
+        $.ajax({
+            url: '/api',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(registerData),
+            success: function () {
+                window.location.href = '/users'
+            }
+
+        })
 
 
-    }
+    })
 </script>
 </body>
 </html>
